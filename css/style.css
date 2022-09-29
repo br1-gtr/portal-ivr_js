@@ -1,3 +1,59 @@
+.widget {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(60, 65, 92, 0.4156862745);
+  width: 250px;
+  height: 320px;
+  margin: 10px 10px 10px 35px;
+  border-radius: 15px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2), -3px -3px 5px rgba(185, 185, 185, 0.5);
+}
+.widget__span {
+  background-color: #301B3F;
+  color: white;
+  margin-right: auto;
+  border-radius: 15px 0px;
+  padding: 3px 6px;
+}
+.widget__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+}
+.widget__icon {
+  width: 20px;
+}
+.widget__data {
+  width: 100%;
+  font-size: 10px;
+  background-color: black;
+  border-radius: 0px 0px 15px 15px;
+  color: rgb(0, 255, 161);
+}
+.widget__data p {
+  padding: 5px;
+  text-align: center;
+}
+
+.widget__btn {
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
+  background-color: #151515;
+  color: rgb(47, 255, 0);
+  border: 2px solid black;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+.widget__btn:hover {
+  color: #151515;
+  box-shadow: inset 2px 2px 6px rgb(52, 52, 52), inset -2px -2px 6px rgb(52, 52, 52);
+  background-color: rgb(47, 255, 0);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -40,12 +96,15 @@ body {
 
 .container {
   position: relative;
-  justify-content: flex-start;
-  height: 78vh;
+  align-items: flex-start;
+  min-height: 78vh;
   background-color: #151515;
   padding: 5px;
 }
 .container .nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   position: relative;
   width: 25%;
   height: 100%;
@@ -59,22 +118,23 @@ body {
   width: auto;
   height: 8vh;
   font-size: 25px;
-  border: 1px solid black;
+  border: 1px solid #151515;
   border-radius: 15px;
   text-align: center;
   background-color: #3C415C;
 }
 .container .nav__conting--movil {
-  border-right: 12px solid rgb(80, 169, 233);
+  border-right: 12px solid #50a9e9;
 }
 .container .nav__conting--cable {
-  border-right: 12px solid rgb(233, 80, 80);
+  border-right: 12px solid #e95050;
 }
 .container .nav__conting--fija {
-  border-right: 12px solid rgb(233, 215, 80);
+  border-right: 12px solid #e9d750;
 }
 .container .nav__conting--ot {
-  border-right: 12px solid rgb(141, 141, 141);
+  border-right: 12px solid #8d8d8d;
+  font-size: 20px;
 }
 .container .nav__btn {
   position: absolute;
@@ -89,6 +149,8 @@ body {
   width: 100%;
   height: 100%;
   background-color: #B4A5A5;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .footer {
@@ -101,4 +163,8 @@ body {
   color: rgba(255, 0, 0, 0) !important;
   width: 10px !important;
   position: absolute;
+}
+
+.oculto {
+  display: none;
 }/*# sourceMappingURL=style.css.map */
