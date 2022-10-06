@@ -5,7 +5,8 @@ const NEGOCIOS = [
     pcrc:"Black",
     estado: false,
     icon:"./assets/icon/icon-movil.svg",
-    color:"#50a9e9"
+    color:"#50a9e9",
+    modif:""
     },
     {
     id: 1,    
@@ -13,7 +14,8 @@ const NEGOCIOS = [
     pcrc:"Onboarding",
     estado: false,
     icon:"./assets/icon/icon-movil.svg",
-    color:"#50a9e9"
+    color:"#50a9e9",
+    modif:""
     },
     {
     id: 2,
@@ -21,7 +23,8 @@ const NEGOCIOS = [
     pcrc:"Abonos",
     estado: false,
     icon:"./assets/icon/icon-movil.svg",
-    color:"#50a9e9"
+    color:"#50a9e9",
+    modif:""
     },
     {
     id: 3,    
@@ -29,7 +32,8 @@ const NEGOCIOS = [
     pcrc:"Prepago",
     estado: false,
     icon:"./assets/icon/icon-movil.svg",
-    color:"#50a9e9"
+    color:"#50a9e9",
+    modif:""
     },
     {
     id: 4,
@@ -37,7 +41,8 @@ const NEGOCIOS = [
     pcrc:"Customer",
     estado: false,
     icon:"./assets/icon/care-cable.svg",
-    color:"#e95050"
+    color:"#e95050",
+    modif:""
     },
     {
     id: 5,
@@ -45,7 +50,8 @@ const NEGOCIOS = [
     pcrc:"Soporte",
     estado: false,
     icon:"./assets/icon/sop.svg",
-    color:"#e95050"
+    color:"#e95050",
+    modif:""
     },
     {
     id: 6,
@@ -53,7 +59,8 @@ const NEGOCIOS = [
     pcrc:"Uruguay",
     estado: false,
     icon:"./assets/icon/sop.svg",
-    color:"#e95050"
+    color:"#e95050",
+    modif:""
     },
     {
     id: 7,
@@ -61,7 +68,8 @@ const NEGOCIOS = [
     pcrc:"Customer",
     estado: false,
     icon:"./assets/icon/care-fija.svg",
-    color:"#e9d750"
+    color:"#e9d750",
+    modif:""
     },
     {
     id: 8,
@@ -69,7 +77,8 @@ const NEGOCIOS = [
     pcrc:"Soporte",
     estado: false,
     icon:"./assets/icon/sop.svg",
-    color:"#e9d750"
+    color:"#e9d750",
+    modif:""
     }
 ];
 
@@ -94,10 +103,10 @@ const renderWidgets = () => {
                 </div>
                 <div class="widget__status">
                     <p>Estato: ${(pcrc.estado) ? "Activado":"Desactivado"} </p> 
-                    </div>
+                </div>
                 <button class="widget__btn">Activar</button>
                 <div class="widget__data">
-                    <p>Ultima modificación: - </p>
+                    <p>Ultima modificación: ${(pcrc.modif === "") ? "sin registros en fecha." : pcrc.modif ` por user.`} </p>
                 </div>
             </div>
         `;
@@ -124,3 +133,40 @@ nav.addEventListener('click', elem => {
         });
     };
 });
+
+dashboard.addEventListener('click', e => {
+    if(e.target.classList.contains("widget__btn")){
+        let indexObj = e.target.parentElement.getAttribute('id'); //registro de id para detectar index en OBJ
+        btnStatusHandler(e.target, indexObj);
+        updateMsj(e,indexObj); //modif msj MODIF
+        localStorage.setItem('PCRCs-DATA',JSON.stringify(NEGOCIOS)) //guarda data/obj en LS
+    }
+});
+
+const btnStatusHandler = (evt, ix) => {
+    //modif BTN
+    if(evt.classList.contains("widget__btn--on")){
+        evt.classList.remove("widget__btn--on")
+        evt.textContent = "Activar";
+        NEGOCIOS[ix].estado = false; //modif eestado de obj/target
+        //modif msj ESTADO
+        const status = evt.parentElement.querySelector('.widget__status');
+        status.firstElementChild.textContent = 'Estado: Desactivado';
+    } else {
+        evt.classList.add("widget__btn--on")
+        evt.textContent = "Desactivar";
+        NEGOCIOS[ix].estado = true; //modif eestado de obj/target
+        //modif msj ESTADO
+        const status = evt.parentElement.querySelector('.widget__status');
+        status.firstElementChild.textContent = 'Estado: Activo';
+    }
+};
+
+const updateMsj = (evt, ix) => {
+    const dataModif = new Date()
+    NEGOCIOS[ix].modif = dataModif.toUTCString(); //guarda data en obj
+    //actualiza card
+    const modif = evt.target.parentElement.querySelector('.widget__data');
+    modif.firstElementChild.textContent = `Ultima modificación: ${dataModif} por user.`;
+}
+

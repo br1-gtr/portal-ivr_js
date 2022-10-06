@@ -53,6 +53,10 @@
   box-shadow: inset 2px 2px 6px rgb(52, 52, 52), inset -2px -2px 6px rgb(52, 52, 52);
   background-color: rgb(47, 255, 0);
 }
+.widget__btn--on {
+  color: #151515 !important;
+  background-color: rgb(47, 255, 0) !important;
+}
 
 * {
   padding: 0;
