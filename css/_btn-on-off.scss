@@ -4,7 +4,7 @@
     height: 30px;
     font-size: 16px;
     background-color: $color-bg-dark;
-    color:  $color-green-sub;
+    color:  $color-green-main;
     border: 2px solid black;
     border-radius: 10px;
     transition: 0.5s;
@@ -12,10 +12,10 @@
         color: $color-bg-dark;
         //border: 2px solid $color-bg-dark;
         box-shadow: inset 2px 2px 6px rgb(52, 52, 52),inset -2px -2px 6px rgb(52, 52, 52);
-        background-color: $color-green-sub;
+        background-color: $color-green-main;
     }
     &--on{
         color: $color-bg-dark!important;
-        background-color: $color-green-sub!important;
+        background-color: $color-green-main!important;
     }    
 }

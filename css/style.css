@@ -4,8 +4,8 @@
   justify-content: space-between;
   align-items: center;
   background-color: rgba(60, 65, 92, 0.4156862745);
-  width: 250px;
-  height: 320px;
+  width: 200px;
+  height: 230px;
   margin: 10px 10px 10px 35px;
   border-radius: 15px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2), -3px -3px 5px rgba(185, 185, 185, 0.5);
@@ -21,17 +21,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 25px;
+  font-size: 20px;
+}
+.widget__title h2 {
+  margin-left: 3px;
 }
 .widget__icon {
   width: 20px;
 }
 .widget__data {
   width: 100%;
-  font-size: 10px;
-  background-color: black;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 9px;
+  background-color: #151515;
   border-radius: 0px 0px 15px 15px;
-  color: rgb(0, 255, 161);
+  color: #00ffa1;
 }
 .widget__data p {
   padding: 5px;
@@ -43,7 +50,7 @@
   height: 30px;
   font-size: 16px;
   background-color: #151515;
-  color: rgb(47, 255, 0);
+  color: #00ffa1;
   border: 2px solid black;
   border-radius: 10px;
   transition: 0.5s;
@@ -51,11 +58,11 @@
 .widget__btn:hover {
   color: #151515;
   box-shadow: inset 2px 2px 6px rgb(52, 52, 52), inset -2px -2px 6px rgb(52, 52, 52);
-  background-color: rgb(47, 255, 0);
+  background-color: #00ffa1;
 }
 .widget__btn--on {
   color: #151515 !important;
-  background-color: rgb(47, 255, 0) !important;
+  background-color: #00ffa1 !important;
 }
 
 * {
@@ -101,7 +108,7 @@ body {
 .container {
   position: relative;
   align-items: flex-start;
-  min-height: 78vh;
+  min-height: 80vh;
   background-color: #151515;
   padding: 5px;
 }
@@ -148,19 +155,40 @@ body {
   width: 30px;
   background-color: #151515;
   border-radius: 0px 10px 10px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .nav__btn img {
+  margin: 0px 5px;
+  filter: invert(77%) sepia(16%) saturate(4666%) hue-rotate(99deg) brightness(106%) contrast(104%);
+  transition: 0.5s;
+}
+.container .nav__btn .arrow-dir {
+  transform: rotate(180deg);
 }
 .container .dashboard {
+  overflow-y: scroll;
   width: 100%;
-  height: 100%;
+  height: 500px;
+  min-height: 80vh;
   background-color: #B4A5A5;
   display: flex;
   flex-wrap: wrap;
+  border-radius: 3px;
 }
 
 .footer {
-  height: 80px;
+  height: 7vh;
   background-color: #151515;
   margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.footer__marq {
+  background-color: black;
+  color: #e95050;
 }
 
 .nav-off {

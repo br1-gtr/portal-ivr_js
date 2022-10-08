@@ -84,10 +84,12 @@ const NEGOCIOS = [
 
 const nav = document.querySelector('.nav');
 const btnNav = document.querySelector('#btn-nav');
+const btnNavImg = document.querySelector('#btn-nav-img');
 const dashboard = document.querySelector('.dashboard');
 
 btnNav.addEventListener('click', () => {
     nav.classList.toggle('nav-off');
+    btnNavImg.classList.toggle('arrow-dir');
 });
 
 //LocalStorage
