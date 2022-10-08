@@ -1,4 +1,4 @@
-const NEGOCIOS = [
+let NEGOCIOS = [
     {
     id: 0,
     negocio: "Movil",
@@ -96,8 +96,8 @@ btnNav.addEventListener('click', () => {
 
 const getLocalStorageData = () => {
     const dataLS = localStorage.getItem('PCRCs-DATA');
-    const negociosLS = JSON.parse(dataLS);
-    return (negociosLS !== null) ? negociosLS : NEGOCIOS;
+    let negociosLS = JSON.parse(dataLS);
+    return (negociosLS !== null) ? NEGOCIOS = negociosLS : NEGOCIOS;
 };
 
 //Render Widgets
