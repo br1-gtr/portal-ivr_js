@@ -90,9 +90,17 @@ btnNav.addEventListener('click', () => {
     nav.classList.toggle('nav-off');
 });
 
+//LocalStorage
+
+const getLocalStorageData = () => {
+    const dataLS = localStorage.getItem('PCRCs-DATA');
+    const negociosLS = JSON.parse(dataLS);
+    return (negociosLS !== null) ? negociosLS : NEGOCIOS;
+};
+
 //Render Widgets
 const renderWidgets = () => {
-    for( pcrc of NEGOCIOS){
+    for( pcrc of getLocalStorageData()){
         dashboard.innerHTML += `
             <div class="widget ${pcrc.negocio}" id="${pcrc.id}">
                 <div class="widget__span" style="border-right: 10px solid ${pcrc.color};">
@@ -104,16 +112,16 @@ const renderWidgets = () => {
                 <div class="widget__status">
                     <p>Estato: ${(pcrc.estado) ? "Activado":"Desactivado"} </p> 
                 </div>
-                <button class="widget__btn">Activar</button>
+                <button class="${(pcrc.estado)?'widget__btn widget__btn--on':'widget__btn'}"> ${(pcrc.estado)? "Desactivar":"Activar"}</button> 
                 <div class="widget__data">
-                    <p>Ultima modificación: ${(pcrc.modif === "") ? "sin registros en fecha." : pcrc.modif ` por user.`} </p>
+                    <p>Ultima modificación: ${(pcrc.modif === "") ? "sin registros en fecha." : pcrc.modif+` por user.`} </p> 
                 </div>
             </div>
         `;
     };
 };
 renderWidgets();
-
+ 
 let widgets = document.querySelectorAll('.widget'); 
 
 nav.addEventListener('click', elem => {
@@ -169,4 +177,5 @@ const updateMsj = (evt, ix) => {
     const modif = evt.target.parentElement.querySelector('.widget__data');
     modif.firstElementChild.textContent = `Ultima modificación: ${dataModif} por user.`;
 }
+
 
