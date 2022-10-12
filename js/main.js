@@ -196,3 +196,8 @@ formIn.addEventListener('submit', evt => {
         ? loginDashboard.style.display = 'none'
         : console.log('datos incorrectos');
 })
+
+const close = document.querySelector('#close');
+close.addEventListener('click', ()=> {
+    loginDashboard.style.display = 'block';
+});
