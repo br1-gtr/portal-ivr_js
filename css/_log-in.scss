@@ -1,0 +1,55 @@
+@import "var-color";
+.bg-log{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.98);
+    z-index: 10;
+    transition: 0.5s;
+    .log{
+        height: auto;
+        width: 300px;
+        padding: 10px;
+        border-radius: 15px;
+        background-color: #301B3F;
+        border: 1px solid $color-green-main;
+        color: white;
+        &__title{
+            font-size: 65px;
+            text-align: center;
+        }
+        &__sub-title{
+            font-family: 'Permanent Marker', cursive;
+            position: relative;
+            color: $color-green-main;
+            top: -30px;
+            right: 35px;
+            font-size: 25px;
+            text-shadow: 1px -3px black;
+            text-align: right;
+        }
+        &__form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            input[type="text"], input[type="password"]{
+                font-size: 15px;
+                background-color: black;
+                color: rgb(0, 255, 161);
+                margin: 10px 0px; 
+                border-radius: 5px;
+                padding: 3px;
+            }
+        }
+        #btn-log{
+            height: 45px;
+            margin: 15px;
+            padding: 5px;
+            font-size: 20px;
+        }
+    }
+}

@@ -180,4 +180,19 @@ const updateMsj = (evt, ix) => {
     modif.firstElementChild.textContent = `Ultima modificación: ${dataModif} por user.`;
 }
 
+//Login
 
+const USER = 'gtrin';
+const PASS = 'force2022';
+
+const loginDashboard = document.querySelector('.bg-log');
+const formIn = document.querySelector('.log__form')
+
+formIn.addEventListener('submit', evt => {
+    evt.preventDefault();
+    const userIn = document.querySelector('#user').value;
+    const passIn = document.querySelector('#pass').value;
+    (userIn === USER && passIn === PASS) 
+        ? loginDashboard.style.display = 'none'
+        : console.log('datos incorrectos');
+})
