@@ -1,3 +1,6 @@
+import {USER,PASS} from './negocios-data-user.js';
+//import {NEGOCIOS} from './negocios-data-user.js';
+
 let NEGOCIOS = [
     {
     id: 0,
@@ -102,7 +105,7 @@ const getLocalStorageData = () => {
 
 //Render Widgets
 const renderWidgets = () => {
-    for( pcrc of getLocalStorageData()){
+    for( let pcrc of getLocalStorageData() ){
         dashboard.innerHTML += `
             <div class="widget ${pcrc.negocio}" id="${pcrc.id}">
                 <div class="widget__span" style="border-right: 10px solid ${pcrc.color};">
@@ -181,9 +184,6 @@ const updateMsj = (evt, ix) => {
 }
 
 //Login
-
-const USER = 'gtrin';
-const PASS = 'force2022';
 
 const loginDashboard = document.querySelector('.bg-log');
 const formIn = document.querySelector('.log__form')

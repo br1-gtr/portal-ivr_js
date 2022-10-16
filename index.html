@@ -19,16 +19,14 @@
         <main class="log">
             <h1 class="log__title">Telecom</h1>
             <h3 class="log__sub-title">Portal IVR</h3>
-                <form class="log__form">
+            <form class="log__form">
 
-                    <input type="text" placeholder="Ingresar usuario" id="user" required>
+                <input type="text" placeholder="Ingresar usuario" id="user" required autocomplete="off">
+                <input type="password" placeholder="Ingresar contraseña" id="pass" required>
+                <input type="submit" value="Ingresar" id="btn-log" class="widget__btn">
 
-                    <input type="password" placeholder="Ingresar contraseña" id="pass" required>
-
-                    <input type="submit" value="Ingresar" id="btn-log" class="widget__btn">
-
-                </form>
             </form>
+            <p style="color: black;">U: gtrin / P: force2022</p>
         </main>
     </div>
     <!--LogIn FIN-->
@@ -74,6 +72,6 @@
     <footer class="footer">
         <marquee class="footer__marq" behavior="" direction="" scrollamount="5">Amba: sin incidentes activos de impacto alto. // Lito: Caída red 2G. Impacto ALTO. Mensaje 23 disponible. // Medi: sin incidentes activos de impacto alto.</marquee>
     </footer>
-    <script src="./js/main.js"></script>
+    <script src="./js/main.js" type="module"></script>
 </body>
 </html>
